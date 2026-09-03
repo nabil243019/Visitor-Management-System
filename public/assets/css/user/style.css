@@ -1,0 +1,269 @@
+/* =========================
+LOCK SCROLL - Home hanya 1 halaman
+(khusus halaman Home, Check In & Check Out
+tetap bisa discroll normal karena isinya form panjang)
+========================= */
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+html.device-mobile,
+html.device-tablet,
+body.device-mobile,
+body.device-tablet {
+    height: auto;
+    overflow-y: auto;
+}
+
+/* Mode Desktop di Home tetap dikunci 100vh + hidden */
+body.device-desktop {
+    height: 100%;
+    overflow: hidden;
+}
+
+body.device-desktop #deviceFrame {
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Supaya hero mengisi tinggi frame (bukan selalu 100vh asli browser) */
+#deviceFrame .hero {
+    height: 100%;
+}
+
+/* =========================
+NAVBAR
+========================= */
+
+.navbar {
+    height: 80px;
+    background: #fff;
+    border-bottom: 1px solid #F3F4F6;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.navbar-tools {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* =========================
+HERO
+========================= */
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(rgba(0,0,0,.60), rgba(0,0,0,.60)),
+        url("../../img/datacenter.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-badge {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 50px;
+    background: #FEF3C7;
+    color: #B45309;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: 58px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.hero-description {
+    color: #D1D5DB;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+BUTTON
+========================= */
+
+.btn {
+    transition: .3s;
+    border-radius: 12px;
+}
+
+/* =========================
+RESPONSIVE (real device asli)
+========================= */
+
+@media(max-width: 992px) {
+    .hero {
+        text-align: center;
+    }
+    .hero-title {
+        font-size: 46px;
+    }
+    .hero-buttons {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 768px) {
+    .hero-title {
+        font-size: 36px;
+    }
+    .hero-description {
+        font-size: 16px;
+    }
+}
+
+/* =========================
+DEVICE PREVIEW - HERO OVERRIDE
+(supaya tampilan mobile/tablet beneran
+kelihatan beda walau browser aslinya lebar)
+========================= */
+
+body.device-tablet .hero {
+    text-align: center;
+}
+
+body.device-tablet .hero-title {
+    font-size: 42px;
+}
+
+body.device-tablet .hero-buttons {
+    justify-content: center;
+}
+
+body.device-mobile .hero {
+    text-align: center;
+}
+
+body.device-mobile .hero .container {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+body.device-mobile .hero-badge {
+    font-size: 13px;
+    padding: 6px 14px;
+}
+
+body.device-mobile .hero-title {
+    font-size: 28px;
+}
+
+body.device-mobile .hero-description {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+body.device-mobile .hero-buttons {
+    flex-direction: column;
+    justify-content: center;
+}
+
+body.device-mobile .hero-buttons .btn {
+    width: 100%;
+}
+
+body.device-mobile .navbar-brand {
+    font-size: 1.1rem;
+}
+
+/* =========================
+THEME ORANGE + YELLOW
+========================= */
+
+:root {
+    --primary: #F97316;
+    --secondary: #FACC15;
+    --white: #ffffff;
+    --text: #1F2937;
+    --gray: #6B7280;
+    --border: #FFE7C2;
+    --shadow: 0 12px 30px rgba(249,115,22,.15);
+}
+
+.btn-primary {
+    background: #F97316 !important;
+    border-color: #F97316 !important;
+    color: #fff !important;
+}
+
+.btn-primary:hover {
+    background: #EA580C !important;
+    border-color: #EA580C !important;
+}
+
+.btn-outline-primary {
+    color: #F97316 !important;
+    border: 2px solid #F97316 !important;
+}
+
+.btn-outline-primary:hover {
+    background: #F97316 !important;
+    color: #fff !important;
+}
+
+a { color: #F97316; }
+a:hover { color: #EA580C; }
+
+.text-primary { color: #F97316 !important; }
+.bg-primary { background: #F97316 !important; }
+.border-primary { border-color: #F97316 !important; }
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #F97316;
+    box-shadow: 0 0 0 .25rem rgba(249,115,22,.25);
+}
+
+.badge.bg-primary { background: #F97316 !important; }
+
+.page-item.active .page-link {
+    background: #F97316;
+    border-color: #F97316;
+}
+
+.page-link { color: #F97316; }
+.page-link:hover { color: #EA580C; }
+
+.hero-badge {
+    background: #FFF3D4;
+    color: #D97706;
+}
+
+::selection {
+    background: #F97316;
+    color: #fff;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #F97316; border-radius: 20px; }
+::-webkit-scrollbar-track { background: #FFF7ED; }
