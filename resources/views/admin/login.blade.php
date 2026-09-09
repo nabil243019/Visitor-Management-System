@@ -131,6 +131,23 @@
                     @endif
 
 
+                    @if(session('success'))
+
+                    <div class="alert alert-success">
+
+
+                        <i class="bi bi-check-circle-fill"></i>
+
+
+                        {{ session('success') }}
+
+
+                    </div>
+
+
+                    @endif
+
+
 
 
 
@@ -289,7 +306,7 @@
 
                             <a
 
-                                href="#"
+                                href="{{ route('password.request') }}"
 
                                 class="forgot-password">
 
