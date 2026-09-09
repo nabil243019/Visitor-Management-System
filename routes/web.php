@@ -49,6 +49,25 @@ Route::middleware('guest')->group(function () {
         [AuthController::class, 'authenticate']
     )->name('process');
 
+
+    // FORGOT PASSWORD
+
+    Route::get('/admin/forgot-password',
+        [AuthController::class, 'showForgotForm']
+    )->name('password.request');
+
+    Route::post('/admin/forgot-password',
+        [AuthController::class, 'sendResetLink']
+    )->name('password.email');
+
+    Route::get('/admin/reset-password/{token}',
+        [AuthController::class, 'showResetForm']
+    )->name('password.reset');
+
+    Route::post('/admin/reset-password',
+        [AuthController::class, 'resetPassword']
+    )->name('password.update');
+
 });
 
 
